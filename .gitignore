@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+# keine eigenen Logs / no personal log files
+GuideLog_*.txt
+Logs_App_*.txt
+*_decoded.txt
