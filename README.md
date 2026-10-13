@@ -1,6 +1,6 @@
 # StellavitaLogsreader – Log-Viewer für StellaVita / StellaVita log viewer
 
-https://github.com/marzibasti-droid/StellavitaLogsreader · Lizenz / License: MIT
+https://github.com/marzibasti-droid/StellavitaLogsreader · Lizenz / License: GPL-3.0
 
 **DE** – Liest die (verschleierten) `GuideLog_*.txt` der Box und die `Logs_App_*.txt` der App, entschlüsselt sie
 automatisch und zeigt Guiding-Graph (Zoom/Pan), Sitzungstabelle, Abbrüche und HFD/HFR-Statistik.

@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# StellavitaLogsreader - Copyright (C) 2026 marzibasti-droid
+# https://github.com/marzibasti-droid/StellavitaLogsreader
+#
+# This program is free software: you can redistribute it and/or modify it under the terms of the
+# GNU General Public License as published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details: <https://www.gnu.org/licenses/>.
 """
 StellavitaLogsreader - Viewer fuer StellaVita-Guiding-Logs
 =================================================
@@ -137,7 +147,7 @@ _TR = {
         "Haftungsausschluss:\nDie Software wird „wie besehen“ (as is) ohne ausdrückliche oder "
         "stillschweigende Garantie bereitgestellt. Keine Haftung für Hardwareschäden, Datenverlust oder "
         "entgangene Aufnahmesessions. Nutzung auf eigene Gefahr.\n\n"
-        "Quelle / Lizenz: MIT – https://github.com/marzibasti-droid/StellavitaLogsreader\n\nDatenschutz:\nLogdateien werden ausschließlich lokal auf Ihrem Rechner verarbeitet. Es werden keine "
+        "Quelle / Lizenz: GPL-3.0 – https://github.com/marzibasti-droid/StellavitaLogsreader\n\nDatenschutz:\nLogdateien werden ausschließlich lokal auf Ihrem Rechner verarbeitet. Es werden keine "
         "Daten (z. B. Standort/GPS) an Server übertragen oder dort gespeichert.",
         "StellavitaLogsreader {}\nViewer for StellaVita guiding logs.\n\n"
         "Trademark notice:\nIndependent open-source tool by the community, for the community. "
@@ -146,7 +156,7 @@ _TR = {
         "to describe compatibility.\n\n"
         "Disclaimer:\nThe software is provided \"as is\", without warranty of any kind, express or implied. "
         "No liability for hardware damage, data loss or lost imaging sessions. Use at your own risk.\n\n"
-        "Source / license: MIT – https://github.com/marzibasti-droid/StellavitaLogsreader\n\nPrivacy:\nLog files are processed locally on your computer only. No data (e.g. location/GPS) is "
+        "Source / license: GPL-3.0 – https://github.com/marzibasti-droid/StellavitaLogsreader\n\nPrivacy:\nLog files are processed locally on your computer only. No data (e.g. location/GPS) is "
         "transmitted to or stored on any server."),
     "loading": ("Lade {} …", "Loading {} …"),
     "loaded": ("{} Datei(en) geladen · {} Frames · {} Drops · {} Sitzungen",
