@@ -1,0 +1,56 @@
+name: Build apps
+
+# Baut Windows-EXE und macOS-App automatisch auf GitHub.
+# Start: Reiter "Actions" -> "Build apps" -> "Run workflow"  (Ergebnis: Artifacts)
+# oder automatisch beim Veroeffentlichen eines Releases (Dateien werden dem Release angehaengt).
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            name: Windows
+            cmd: python -m PyInstaller --onedir --windowed --name StellavitaLogsreader --hidden-import matplotlib.backends.backend_tkagg stellavita_logsreader.py
+            pack: Compress-Archive -Path dist\StellavitaLogsreader -DestinationPath StellavitaLogsreader-Windows.zip
+            asset: StellavitaLogsreader-Windows.zip
+          - os: macos-14
+            name: macOS-AppleSilicon
+            cmd: python -m PyInstaller --windowed --name StellavitaLogsreader --hidden-import matplotlib.backends.backend_tkagg stellavita_logsreader.py
+            pack: ditto -c -k --sequesterRsrc --keepParent dist/StellavitaLogsreader.app StellavitaLogsreader-macOS-AppleSilicon.zip
+            asset: StellavitaLogsreader-macOS-AppleSilicon.zip
+          - os: macos-13
+            name: macOS-Intel
+            cmd: python -m PyInstaller --windowed --name StellavitaLogsreader --hidden-import matplotlib.backends.backend_tkagg stellavita_logsreader.py
+            pack: ditto -c -k --sequesterRsrc --keepParent dist/StellavitaLogsreader.app StellavitaLogsreader-macOS-Intel.zip
+            asset: StellavitaLogsreader-macOS-Intel.zip
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip numpy matplotlib pyinstaller
+      - name: Build
+        run: ${{ matrix.cmd }}
+      - name: Package
+        run: ${{ matrix.pack }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ matrix.asset }}
+      - name: Attach to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.asset }}
